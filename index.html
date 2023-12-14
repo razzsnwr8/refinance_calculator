@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Refinance Calculator</title>
+  </head>
+  <body>
+    <div class="home-calc-wrap tab-content refn-calc-wrap">
+      <div class="home-calc refncalc">
+        <div id="refinanceCalc" class="tab-pane active">
+          <div class="calc-left">
+            <h4>Tell Us About Your Current Loan</h4>
+            <form action="" class="calc-form" id="estimated_calculator_form">
+              <div class="field-wrap field-wrap-input">
+                <div class="field-item error-property-value rc-tooltip">
+                  <label for="current_prop_value">Current property value*</label>
+                  <div>
+                    <span>$</span>
+                    <input type="text" id="current_prop_value" placeholder="1,000,000" value="1,000,000" required>
+                  </div>
+                  <span class="rc-tooltiptext">Indicative figure is fine</span>
+                </div>
+                <div class="error-wrap">
+                  <span class="property_error-message-refinance" style="color: #ff0000;"></span>
+                </div>
+              </div>
+              <!-- .field-wrap -->
+              <div class="field-wrap field-wrap-input">
+                <div class="field-item error-loan rc-tooltip">
+                  <label for="current_home_loan_value">Current home loan balance*</label>
+                  <div>
+                    <span>$</span>
+                    <input type="text" id="current_home_loan_value" class="error_msg" value="500,000" placeholder="500,000" required>
+                  </div>
+                  <span class="rc-tooltiptext">Indicative figure is fine</span>
+                </div>
+                <div class="error-wrap">
+                  <span class="loan_error-message-refinance" style="color: #ff0000;"></span>
+                </div>  
+              </div>
+              <!-- .field-wrap -->
+              <div class="field-wrap field-wrap-input">
+                <div class="field-item">
+                  <label for="loan_type">Home loan type*</label>
+                  <div class="field-radio" id="loan_type" >
+                    <div>
+                      <input type="radio" id="owner_occupied" name="loan_type" value="owner_occupied" checked>
+                      <label for="owner_occupied">Owner-occupied</label>
+                    </div>
+                    <div>
+                      <input type="radio" id="investment" name="loan_type" value="investment">
+                      <label for="investment">Investment</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- .field-wrap -->  
+              <div class="field-wrap field-wrap-input">
+                <div class="field-item">
+                  <label for="repayment_type">Repayment type*</label>
+                  <div class="field-radio" id="repayment_type">
+                    <div>
+                      <input type="radio" id="p_i" name="repayment_type" value="p_i" checked>
+                      <label for="p_i">P & I</label>
+                    </div>
+                    <div>
+                      <input type="radio" id="interest_only" name="repayment_type" value="interest_only">
+                      <label for="interest_only">Interest only</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- .field-wrap -->
+              <div class="field-wrap field-wrap-input">
+                <div class="field-item error-interest">
+                  <label for="current_interest_rate">Current interest rate*</label>
+                  <div>
+                    <input type="text" id="current_interest_rate" class="error_msg" placeholder="e.g. 7.20" value="7.20" required>
+                    <span class="span-end">%</span>
+                  </div>
+                </div>
+                <div class="error-wrap">
+                  <span class="interest_error-message-refinance" style="color: #ff0000;"></span>
+                </div>
+              </div>
+              <!-- .field-wrap -->
+              <div class="field-wrap field-wrap-input">
+                <div class="field-item error-remainT">
+                  <label for="remain_loan_term">Remaining loan term*</label>
+                  <div>
+                    <input type="text" id="remain_loan_term" class="error_msg" placeholder="e.g. 25" value="25" required>
+                    <span class="span-end">years</span>
+                  </div>
+                </div>
+                <div class="error-wrap">
+                  <span class="remainT_error-message-refinance" style="color: #ff0000;"></span>
+                </div>
+              </div>
+              <!-- .field-wrap -->
+              <div class="refncalc-bottom">    
+                <input type="submit" id="calculate" class="calculate-btn" value="Calculate">
+                <div id="reset" class="reset-btn">Reset</div>
+              </div>    
+            </form>
+          </div>
+          <div id="refncalc-right" class="calc-right">
+            <div class="stage stage1 active">
+              <div>
+                <h3><span>Tell us about your current home loan and <br></span>discover your potential savings!</h3>
+              </div>
+            </div>
+            <div class="stage stage2">
+              <div>
+                <div class="cash-out-wrap">
+                  <h3>You could be saving</h3>
+                  <div class="est-cash" id="refinance_est_cash">$ --</div>
+                </div>
+                <div class="info-wrap">
+                  <div class="info-content">
+                    <div class="info-left">
+                      <span class="info-label">Estimated Monthly Repayment at the Current Interest Rate</span>
+                      <div class="info-value">$583</div> 
+                    </div>
+                    <div class="info-right">
+                      <span class="info-label">Estimated Monthly Repayment If You Refinance</span>
+                      <div class="info-value">$500</div>
+                    </div>
+                  </div>
+                </div>
+                <h3>Find out what offer we can get for you!</h3>
+                <a href="#" class="apply-btn" target="_blank">Talk to Our Specialist</a>
+              </div>
+            </div>
+            <div class="stage stage3">
+              <div>
+                <h3>Sorry, something went wrong</h3>
+                <p>One of our specialists may be able to help you find a better offer.</p>
+                <a href="#" class="apply-btn" target="_blank">Talk to Our Specialist</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
